@@ -32,12 +32,24 @@ import com.dht.service.RoleService;
 public class HomeController {
     
     @Autowired
-    private RoleService roleService; 
+//    private RoleService roleService; 
+    private LocalSessionFactoryBean sessionFactory;
+    
+    
     
     @RequestMapping("/")
     public String index(Model model){
-        model.addAttribute("roles", this.roleService.getRoles());
+      
+        model.addAttribute("login","Hello");
         
-       return "baseLayout";
+       return "index";
+    }
+    
+     @RequestMapping("/login")
+    public String login(Model model){
+      
+        model.addAttribute("login","hello");
+        
+       return "login";
     }
 }
